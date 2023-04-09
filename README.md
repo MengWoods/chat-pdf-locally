@@ -4,26 +4,19 @@ This interactive script uses OpenAI's GPT-3 API to answer questions about a PDF 
 
 ## Requirements
 
-* Python 3
+* Python 3.X
 * OpenAI API key (sign up at [openai.com](https://openai.com/))
 * PyPDF2
 * requests
 * transformers
-* python-dotenv
 
 ## Installation
 
-1. Clone the repository or download the ZIP file and extract its contents to a directory of your choice.
+1. Clone the repository.
 
 2. Install the required dependencies by running `pip3 install -r requirements.txt` in the project directory.
 
-3. Sign up for an OpenAI API key at [openai.com](https://openai.com/) and create a new file named `.env` in the project directory.
-
-4. Add your OpenAI API key to the `.env` file as shown below:
-
-    ```
-    API_KEY=your_api_key_here
-    ```
+3. Sign up for an OpenAI API key at [openai.com](https://openai.com/) and paste it to `api-key.txt` file in the project directory.
 
 ## Usage
 

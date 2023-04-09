@@ -1,10 +1,11 @@
+#!/usr/bin/python3
 import sys
 import PyPDF2
+from PyPDF2 import PdfReader
 import requests
 import openai
 import os
 import time
-from dotenv import load_dotenv
 from transformers import GPT2Tokenizer, logging
 from tqdm import tqdm
 import warnings
@@ -15,15 +16,12 @@ logging.set_verbosity_error()
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=Warning, module='PyPDF2')
 
-# Load .env file
-load_dotenv()
-
 # Access your API key
-API_KEY = os.getenv('API_KEY')
+with open('api-key.txt', 'r') as file:
+    API_KEY = file.read()
 
 # Define the cost per token
 TOKEN_RATE = 0.0200 / 1000  # 0.02 dollars per 1K tokens, adjust as needed
-
 
 openai.api_key = API_KEY
 
@@ -88,12 +86,12 @@ def read_pdf_from_url(pdf_url):
         print(".", end="", flush=True)
 
     with open('pdf_file.pdf', "rb") as file:
-        reader = PyPDF2.PdfFileReader(file)
-        num_pages = reader.getNumPages()
+        reader = PdfReader(file)
+        num_pages = len(reader.pages)
         text = ""
         for i in range(num_pages):
-            page = reader.getPage(i)
-            page_text = page.extractText()
+            page = reader.pages[i]
+            page_text = page.extract_text()
             if page_text:
                 text += page_text
 
