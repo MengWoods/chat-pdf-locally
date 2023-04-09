@@ -1,6 +1,8 @@
-# GPT-chatwithpdf
+# chat-pdf-locally
 
 This interactive script uses OpenAI's GPT-3 API to answer questions about a PDF document. It breaks the PDF document into chunks of text and uses GPT-3 to generate answers to user questions.
+
+Forked from the project: https://github.com/jsonsmth/GPT-chatwithpdf
 
 ## Requirements
 
@@ -16,13 +18,15 @@ This interactive script uses OpenAI's GPT-3 API to answer questions about a PDF 
 
 2. Install the required dependencies by running `pip3 install -r requirements.txt` in the project directory.
 
-3. Sign up for an OpenAI API key at [openai.com](https://openai.com/) and paste it to `api-key.txt` file in the project directory.
+3. Paste your OpenAI API key to [`./resources/api-key.txt`](./resources/api-key.txt) file. (Sign up for the key at [openai.com](https://openai.com/).)
 
 ## Usage
 
 ### Running the script
 
-Run the script by using the command `python3 chat.py <URL>` in the project directory. Replace `<URL>` with the URL of the PDF document you want to analyze.
+Run the script by using the command `python3 chat.py <URL>` or `python3 chat.py <PATH>` in the project directory.
+- Replace the `<URL>` with the URL of the PDF document you want to analyze.
+- Replace the `<PATH>` with the path to the PDF document from your PC.
 
 ### Asking questions
 
@@ -40,7 +44,7 @@ If you indicate that the answer was incorrect, the script will prompt you to pro
 
 ### Quitting the script
 
-To quit the script, type `quit` and press Enter.
+To quit the script, type `quit` or `q` and press Enter.
 
 ## Supported Platforms
 
